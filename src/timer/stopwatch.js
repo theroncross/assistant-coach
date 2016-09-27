@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TimeDisplay from './timedisplay';
 import './stopwatch.css';
 
 class Stopwatch extends Component {
@@ -15,6 +16,7 @@ class Stopwatch extends Component {
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
     this.reset = this.reset.bind(this);
+    this.label = this.label.bind(this);
     this.handleTiming = this.handleTiming.bind(this);
   }
 
@@ -37,6 +39,14 @@ class Stopwatch extends Component {
     this.setState({ elapsedTime: 0 })
   }
 
+  label() {
+    let buttonLabel;
+    if(!this.state.running) buttonLabel = 'START';
+    else if(!this.state.allRunnersFinished) buttonLabel = 'LAP';
+    else buttonLabel = 'STOP';
+    return buttonLabel;
+  }
+
   handleTiming() {
     if(!this.state.running) {
       const intervalId = this.start();
@@ -50,7 +60,8 @@ class Stopwatch extends Component {
     return (
       <div>
         <div onClick={this.handleTiming} className="stopwatch">
-          {this.state.elapsedTime}
+          <h3 className="stopwatch-label">{this.label()}</h3>
+          <TimeDisplay time={this.state.elapsedTime} className="stopwatch-timedisplay" />
         </div>
         <button onClick={this.reset}>reset</button>
       </div>
