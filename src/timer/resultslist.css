@@ -1,0 +1,12 @@
+.results-list {
+  padding: 0;
+}
+
+.results-list__list-item {
+  margin: 3px auto;
+  list-style: none;
+}
+
+.results-list__list-item h1 {
+  margin: 5px 0;
+}

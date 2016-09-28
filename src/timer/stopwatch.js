@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TimeDisplay from './timedisplay';
+import { connect } from 'react-redux';
+import { addResult } from '../actions';
 import './stopwatch.css';
 
 class Stopwatch extends Component {
@@ -53,6 +55,8 @@ class Stopwatch extends Component {
       this.setState({ intervalId });
     } else if(this.state.allRunnersFinished) {
       this.stop();
+    } else {
+      this.props.recordTime(this.state.elapsedTime);
     }
   }
 
@@ -68,5 +72,15 @@ class Stopwatch extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    recordTime: (time) => {
+      dispatch(addResult(time));
+    }
+  }
+}
+
+Stopwatch = connect(null, mapDispatchToProps)(Stopwatch);
 
 export default Stopwatch;
