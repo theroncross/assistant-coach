@@ -2,16 +2,16 @@ const initialState = {
   results: [],
   athletes: [{
     name: "John",
-    fastestTime: 74
+    goal: 74
   }, {
     name: "Sarah",
-    fastestTime: 84
+    goal: 84
   }, {
     name: "Jennifer",
-    fastestTime: 64
+    goal: 64
   }, {
     name: "Sam",
-    fastestTime: 54
+    goal: 54
   }]
 };
 
