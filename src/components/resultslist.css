@@ -1,12 +1,14 @@
 .results-list {
+  width: 90%;
+  margin: 5px auto;
   padding: 0;
 }
 
 .results-list__list-item {
   margin: 3px auto;
-  list-style: none;
 }
 
-.results-list__list-item h1 {
+.results-list__timedisplay {
+  font-size: 2rem;
   margin: 5px 0;
 }

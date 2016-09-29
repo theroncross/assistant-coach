@@ -71,8 +71,8 @@ class Stopwatch extends Component {
     return (
       <div>
         <div onClick={this.handleTiming} className="stopwatch">
-          <h3 className="stopwatch-label">{this.state.label}</h3>
-          <TimeDisplay time={this.state.elapsedTime} className="stopwatch-timedisplay" />
+          <h3 className="stopwatch__label">{this.state.label}</h3>
+          <TimeDisplay time={this.state.elapsedTime} className="stopwatch__timedisplay" />
         </div>
       </div>
     );

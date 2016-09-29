@@ -6,11 +6,12 @@
   border-radius: 3px;
 }
 
-.stopwatch-label {
-  color: grey;
+.stopwatch__label {
+  font-size: 1.2rem;
+  margin: 5px auto;
 }
 
-.stopwatch-timedisplay {
-  font-size: 2.4rem;
+.stopwatch__timedisplay {
+  font-size: 3.5rem;
   margin: 5px auto;
 }
