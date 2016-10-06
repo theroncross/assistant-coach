@@ -4,3 +4,10 @@ export const addResult = (result) => {
     result
   };
 };
+
+export const updateAthletes = (athletes) => {
+  return {
+    type: 'UPDATE_ATHLETES',
+    athletes
+  };
+}

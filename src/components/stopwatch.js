@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TimeDisplay from './timedisplay';
 import { connect } from 'react-redux';
-import { addResult } from '../actions';
+import { addResult} from '../actions';
 import './stopwatch.css';
 
 class Stopwatch extends Component {
@@ -80,16 +80,17 @@ class Stopwatch extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { athleteCount: state.timer.athletes.length, resultCount: state.timer.results.length }
+  return {
+    athleteCount: state.timer.athletes.length,
+    resultCount: state.timer.results.length
+  }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    recordTime: (time) => {
-      dispatch(addResult(time));
-    }
+    recordTime: (time) => dispatch(addResult(time)),
   }
-}
+};
 
 Stopwatch = connect(mapStateToProps, mapDispatchToProps)(Stopwatch);
 
