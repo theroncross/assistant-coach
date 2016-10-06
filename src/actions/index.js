@@ -4,3 +4,10 @@ export const addResult = (result) => {
     result
   };
 };
+
+export const fetchAthletes = (url) => {
+  return {
+    type: 'FETCH_ATHLETES',
+    url
+  };
+}
