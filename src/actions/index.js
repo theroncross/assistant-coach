@@ -5,9 +5,9 @@ export const addResult = (result) => {
   };
 };
 
-export const fetchAthletes = (url) => {
+export const updateAthletes = (athletes) => {
   return {
-    type: 'FETCH_ATHLETES',
-    url
+    type: 'UPDATE_ATHLETES',
+    athletes
   };
 }

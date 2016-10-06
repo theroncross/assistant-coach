@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TimeDisplay from './timedisplay';
 import { connect } from 'react-redux';
-import { addResult, fetchAthletes } from '../actions';
+import { addResult} from '../actions';
 import './stopwatch.css';
 
 class Stopwatch extends Component {
@@ -22,12 +22,6 @@ class Stopwatch extends Component {
     this.reset = this.reset.bind(this);
     this.athletesRemaining = this.athletesRemaining.bind(this);
     this.handleTiming = this.handleTiming.bind(this);
-  }
-
-  componentDidMount() {
-    if(this.props.athleteCount === 0) {
-      this.props.fetchAthletes('/api');
-    }
   }
 
   tick() {
@@ -95,7 +89,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     recordTime: (time) => dispatch(addResult(time)),
-    fetchAthletes: (url) => dispatch(fetchAthletes(url))
   }
 };
 
