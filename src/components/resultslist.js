@@ -1,10 +1,9 @@
 import React from 'react';
 import TimeDisplay from './timedisplay';
+import AthleteCard from './athleteCard';
 import './resultslist.css';
 
 const ResultsList = (props) => {
-  const athletes = props.athletes.sort((a, b) => { return a.goal > b.goal });
-
   return (
     <table className="results-list">
       <thead>
@@ -24,7 +23,12 @@ const ResultsList = (props) => {
                   className="results-list__timedisplay"
                 />
               </td>
-              <td><h2>{athletes[i].name}</h2></td>
+              <td>
+                <AthleteCard
+                  athlete={props.athletes[i]}
+                  place={i}
+                />
+              </td>
               <td>
                 <TimeDisplay
                   time={result - props.athletes[i].goal}
