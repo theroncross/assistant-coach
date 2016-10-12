@@ -1,7 +1,7 @@
-export const addResult = (result) => {
+export const addTime = (time) => {
   return {
-    type: 'ADD_RESULT',
-    result
+    type: 'ADD_TIME',
+    time
   };
 };
 
@@ -16,5 +16,12 @@ export const moveUpOne = (i) => {
   return {
     type: 'MOVE_UP_ONE',
     i
+  }
+}
+
+export const saveResults = () => {
+  return {
+    type: 'SAVE_RESULTS',
+    payload: null
   }
 }

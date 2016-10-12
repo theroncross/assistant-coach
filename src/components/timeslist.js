@@ -1,7 +1,7 @@
 import React from 'react';
 import TimeDisplay from './timedisplay';
 
-const timesList = (props) => {
+const TimesList = (props) => {
   return (
     <ul className="times-list">
       {props.times.map((time, i) => {
@@ -15,4 +15,4 @@ const timesList = (props) => {
   );
 }
 
-export default timesList;
+export default TimesList;
