@@ -11,7 +11,7 @@ const Timer = (props) => {
     <div>
       <Stopwatch />
       <ResultsList
-        results={props.results}
+        times={props.times}
         athletes={props.athletes}
       />
     </div>
@@ -19,7 +19,7 @@ const Timer = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  results: state.timer.results,
+  times: state.timer.unsavedTimes,
   athletes: state.timer.athletes
 })
 
