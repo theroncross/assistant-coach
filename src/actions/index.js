@@ -11,3 +11,10 @@ export const updateAthletes = (athletes) => {
     athletes
   };
 }
+
+export const moveUpOne = (i) => {
+  return {
+    type: 'MOVE_UP_ONE',
+    i
+  }
+}

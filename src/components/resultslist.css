@@ -4,11 +4,20 @@
   padding: 0;
 }
 
-.results-list__list-item {
-  margin: 3px auto;
+.results-list ul {
+  display: inline-block;
+  width: 40%;
+  padding: 0;
+  list-style: none;
 }
 
 .results-list__timedisplay {
   font-size: 2rem;
   margin: 5px 0;
 }
+
+.results-list__athlete-name {
+  font-size: 2rem;
+  margin: 5px 0;
+}
+
