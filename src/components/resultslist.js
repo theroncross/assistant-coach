@@ -1,38 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TimeDisplay from './timedisplay';
+import { saveResults } from '../actions';
+import TimesList from './timeslist';
+import AthletesList from './athleteslist';
 import './resultslist.css';
 
 const ResultsList = (props) => {
+  const { times, athletes, handleSave } = props;
   return (
-    <table className="results-list">
-      <thead>
-        <tr>
-          <th>Result</th>
-          <th>Name</th>
-          <th>Off by</th>
-        </tr>
-      </thead>
-      <tbody>
-        {props.results.map((result, i) => {
-          return (
-            <tr key={i} className="results-list__list-item">
-              <td><TimeDisplay time={result} className="results-list__timedisplay" /></td>
-              <td><h2>{props.athletes[i].name}</h2></td>
-              <td><TimeDisplay time={result - props.athletes[i].goal} className="results-list__timedisplay" /></td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="results-list">
+      <AthletesList athletes={athletes} />
+      <TimesList times={times} />
+      <button onClick={handleSave} >Save</button>
+    </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    results: state.timer.results,
-    athletes: state.timer.athletes.sort((a, b) => { return a.goal > b.goal })
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  handleSave() { dispatch(saveResults()) }
+});
 
-export default connect(mapStateToProps)(ResultsList);
+export default connect(null, mapDispatchToProps)(ResultsList);
