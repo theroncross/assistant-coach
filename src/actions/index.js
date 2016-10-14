@@ -19,9 +19,9 @@ export const moveUpOne = (i) => {
   }
 }
 
-export const saveResults = () => {
+export const saveAndReset = (entry) => {
   return {
-    type: 'SAVE_RESULTS',
-    payload: null
+    type: 'SAVE_AND_RESET',
+    entry
   }
 }

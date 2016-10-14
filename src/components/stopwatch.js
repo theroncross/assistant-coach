@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TimeDisplay from './timedisplay';
 import { connect } from 'react-redux';
-import { addTime} from '../actions';
+import { addTime } from '../actions';
 import './stopwatch.css';
 
 class Stopwatch extends Component {
