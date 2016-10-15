@@ -1,4 +1,4 @@
-import { updateAthletes, saveAndReset } from '../actions';
+import { updateAthletes, saveAndReset, showPastResult } from '../actions';
 import { db } from '../App';
 
 const fetchData = (url) => {
@@ -20,5 +20,11 @@ export const saveResults = (results) => {
       if(err) console.log("Error:", err);
       dispatch(saveAndReset(entry));
     })
+  }
+}
+
+export const fetchResult = (id) => {
+  return (dispatch) => {
+    return db.get(id).then(result => dispatch(showPastResult(result))).catch(err => console.error(err))
   }
 }

@@ -25,3 +25,10 @@ export const saveAndReset = (entry) => {
     entry
   }
 }
+
+export const showPastResult = (result) => {
+  return {
+    type: 'SHOW_PAST_RESULT',
+    result
+  }
+}

@@ -1,7 +1,8 @@
 const initialState = {
   unsavedTimes: [],
   results: [],
-  athletes: []
+  athletes: [],
+  pastResult: {athletes: [], times: []}
 };
 
 const Timer = (state = initialState, action) => {
@@ -13,7 +14,9 @@ const Timer = (state = initialState, action) => {
     case 'MOVE_UP_ONE':
       return Object.assign({}, state, { athletes: moveUpOne(state.athletes, action.i)});
     case 'SAVE_AND_RESET':
-      return Object.assign({}, state, { results: [action.entry._id], unsavedTimes: [] });
+      return Object.assign({}, state, { results: [ ...state.results, action.entry._id], unsavedTimes: [] });
+    case 'SHOW_PAST_RESULT':
+      return Object.assign({}, state, { pastResult: action.result });
     default:
       return state;
   }
