@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAthletes } from '../middlewares';
+import { fetchAthletes, fetchResult } from '../middlewares';
 import Stopwatch from './stopwatch';
 import ResultsList from './resultslist'
 
@@ -11,20 +11,37 @@ const Timer = (props) => {
     <div>
       <Stopwatch />
       <ResultsList
-        results={props.results}
+        times={props.times}
         athletes={props.athletes}
+      />
+      <ul>
+        {props.results.map(result => {
+          return (
+            <li key={result} onClick={() =>props.getResult(result)}>
+              {result}
+            </li>
+          )}
+        )}
+      </ul>
+      <ResultsList
+        times={props.pastResult.times}
+        athletes={props.pastResult.athletes}
       />
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
+  times: state.timer.unsavedTimes,
+  athletes: state.timer.athletes,
   results: state.timer.results,
-  athletes: state.timer.athletes
+  pastResult: state.timer.pastResult
 })
 
 const mapDispatchToProps = (dispatch) => {
-  return { getAthletes: (url) => dispatch(fetchAthletes(url)) };
+  return {
+    getAthletes: (url) => dispatch(fetchAthletes(url)),
+    getResult: (id) => dispatch(fetchResult(id)) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Timer);
