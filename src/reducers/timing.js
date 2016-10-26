@@ -1,22 +1,20 @@
+import * as actions from '../actions/actiontypes';
+
 const initialState = {
-  unsavedTimes: [],
-  results: [],
   athletes: [],
-  pastResult: {athletes: [], times: []}
+  recordedTimes: []
 };
 
 const Timer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TIME':
-      return Object.assign({}, state, { unsavedTimes: [ ...state.unsavedTimes, action.time ]});
-    case 'UPDATE_ATHLETES':
+    case actions.ADD_TIME:
+      return Object.assign({}, state, { recordedTimes: [ ...state.recordedTimes, action.time ]});
+    case actions.UPDATE_ATHLETES:
       return Object.assign({}, state, { athletes: action.athletes });
-    case 'MOVE_UP_ONE':
+    case actions.MOVE_UP_ONE:
       return Object.assign({}, state, { athletes: moveUpOne(state.athletes, action.i)});
-    case 'SAVE_AND_RESET':
-      return Object.assign({}, state, { results: [ ...state.results, action.entry._id], unsavedTimes: [] });
-    case 'SHOW_PAST_RESULT':
-      return Object.assign({}, state, { pastResult: action.result });
+    case actions.RESET_TIMES:
+      return Object.assign({}, state, { recordedTimes: [] });
     default:
       return state;
   }

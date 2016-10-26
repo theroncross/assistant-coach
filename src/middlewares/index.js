@@ -1,4 +1,4 @@
-import { updateAthletes, saveAndReset, showPastResult } from '../actions';
+import * as actions from '../actions';
 import { db } from '../App';
 
 const fetchData = (url) => {
@@ -9,22 +9,24 @@ export const fetchAthletes = () => {
   return (dispatch) => {
     return fetchData('./api')
       .then(response => response.json())
-      .then(data => dispatch(updateAthletes(data.athletes)))
+      .then(data => dispatch(actions.updateAthletes(data.athletes)))
+      .catch(err => console.error(err))
   }
 }
 
 export const saveResults = (results) => {
   return (dispatch) => {
-    const entry = Object.assign({ _id: new Date().toISOString() }, results);
-    db.put(entry, (err, result) => {
+    const savedResults = Object.assign({ _id: new Date().toISOString() }, results);
+    db.put(savedResults, (err, result) => {
       if(err) console.log("Error:", err);
-      dispatch(saveAndReset(entry));
+      dispatch(actions.addHeatResults(savedResults));
+      dispatch(actions.resetTimes());
     })
   }
 }
 
-export const fetchResult = (id) => {
+export const fetchSelectedHeat = (id) => {
   return (dispatch) => {
-    return db.get(id).then(result => dispatch(showPastResult(result))).catch(err => console.error(err))
+    return db.get(id).then(results => dispatch(actions.displayHeatResults(results))).catch(err => console.error(err))
   }
 }

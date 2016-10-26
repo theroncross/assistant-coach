@@ -1,34 +1,43 @@
+import * as actions from './actiontypes';
+
 export const addTime = (time) => {
   return {
-    type: 'ADD_TIME',
+    type: actions.ADD_TIME,
     time
   };
 };
 
 export const updateAthletes = (athletes) => {
   return {
-    type: 'UPDATE_ATHLETES',
+    type: actions.UPDATE_ATHLETES,
     athletes
   };
 }
 
 export const moveUpOne = (i) => {
   return {
-    type: 'MOVE_UP_ONE',
+    type: actions.MOVE_UP_ONE,
     i
   }
 }
 
-export const saveAndReset = (entry) => {
+export const resetTimes = (heatResults) => {
   return {
-    type: 'SAVE_AND_RESET',
-    entry
+    type: actions.RESET_TIMES,
+    heatResults
   }
 }
 
-export const showPastResult = (result) => {
+export const addHeatResults = (heatResults) => {
   return {
-    type: 'SHOW_PAST_RESULT',
-    result
+    type: actions.ADD_HEAT_RESULTS,
+    heatResults
+  }
+}
+
+export const displayHeatResults = (heatResults) => {
+  return {
+    type: actions.DISPLAY_HEAT_RESULTS,
+    heatResults
   }
 }

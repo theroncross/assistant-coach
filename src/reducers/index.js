@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import timer from './timer';
+import timing from './timing';
+import review from './review';
 
 const app = combineReducers({
-  timer
+  timing,
+  review
 });
 
 export default app;
