@@ -81,8 +81,8 @@ class Stopwatch extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    athleteCount: state.timer.athletes.length,
-    timeCount: state.timer.unsavedTimes.length
+    athleteCount: state.timing.athletes.length,
+    timeCount: state.timing.recordedTimes.length
   }
 };
 

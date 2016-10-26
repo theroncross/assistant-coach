@@ -1,0 +1,6 @@
+export const ADD_TIME = "ADD_TIME";
+export const UPDATE_ATHLETES = "UPDATE_ATHLETES";
+export const MOVE_UP_ONE = "MOVE_UP_ONE";
+export const RESET_TIMES = "RESET_TIMES";
+export const ADD_HEAT_RESULTS = "ADD_HEAT_RESULTS";
+export const DISPLAY_HEAT_RESULTS = "DISPLAY_HEAT_RESULTS";
