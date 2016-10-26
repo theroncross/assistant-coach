@@ -7,7 +7,7 @@ const TimesList = (props) => {
       {props.times.map((time, i) => {
         return (
           <li key={i}>
-            <TimeDisplay className="results-list__timedisplay" time={time}/>
+            <TimeDisplay className="times-list__timedisplay" time={time}/>
           </li>
         );
       })}

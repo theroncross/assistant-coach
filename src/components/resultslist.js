@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveResults } from '../actions';
+import { saveResults } from '../middlewares';
 import TimesList from './timeslist';
 import AthletesList from './athleteslist';
 import './resultslist.css';
@@ -11,13 +11,13 @@ const ResultsList = (props) => {
     <div className="results-list">
       <AthletesList athletes={athletes} />
       <TimesList times={times} />
-      <button onClick={handleSave} >Save</button>
+      <button onClick={() => handleSave({ athletes, times })}>Save</button>
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSave() { dispatch(saveResults()) }
+    handleSave(results) { dispatch(saveResults(results)) }
 });
 
 export default connect(null, mapDispatchToProps)(ResultsList);

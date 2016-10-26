@@ -9,10 +9,10 @@ const AthletesList = (props) => {
         return (
           <li key={i}>
             <span
-              className="results-list__athlete-name"
+              className="athletes-list__athlete-name"
               onClick={() => props.moveUpOne(i)}
             >
-              {athlete.name}
+              {i + 1}. {athlete.name}
             </span>
           </li>
         );

@@ -1,4 +1,5 @@
-import { updateAthletes } from '../actions';
+import { updateAthletes, saveAndReset, showPastResult } from '../actions';
+import { db } from '../App';
 
 const fetchData = (url) => {
   return fetch(url, { accept: 'application/json'})
@@ -9,6 +10,21 @@ export const fetchAthletes = () => {
     return fetchData('./api')
       .then(response => response.json())
       .then(data => dispatch(updateAthletes(data.athletes)))
-      .catch(console.log('oh noes...'));
+  }
+}
+
+export const saveResults = (results) => {
+  return (dispatch) => {
+    const entry = Object.assign({ _id: new Date().toISOString() }, results);
+    db.put(entry, (err, result) => {
+      if(err) console.log("Error:", err);
+      dispatch(saveAndReset(entry));
+    })
+  }
+}
+
+export const fetchResult = (id) => {
+  return (dispatch) => {
+    return db.get(id).then(result => dispatch(showPastResult(result))).catch(err => console.error(err))
   }
 }
