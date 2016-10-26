@@ -1,7 +1,7 @@
 import React from 'react';
 import PouchDB from 'pouchdb';
 import Nav from './components/nav';
-import './App.css';
+import './stylesheets/App.css';
 
 
 export const db = new PouchDB('results');

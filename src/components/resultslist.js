@@ -1,7 +1,7 @@
 import React from 'react';
 import TimesList from './timeslist';
 import AthletesList from './athleteslist';
-import './resultslist.css';
+import '../stylesheets/resultslist.css';
 
 const ResultsList = (props) => {
   return (

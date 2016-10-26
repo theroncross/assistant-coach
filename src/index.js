@@ -9,7 +9,7 @@ import Setup from './containers/setup';
 import Timing from './containers/timing';
 import Review from './containers/review';
 import reducer from './reducers';
-import './index.css';
+import './stylesheets/index.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
